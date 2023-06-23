@@ -110,10 +110,10 @@ function getLocalStorage(){
 
 
 // render dsnv ra giao diện UI
-function renderdsnv(){
+function renderdsnv(arrNV = dsnv.arrNV){
     var content = ''
-    for(var i = 0; i < dsnv?.arrNV.length; i++){
-        var nv = dsnv.arrNV[i]
+    for(var i = 0; i < arrNV.length; i++){
+        var nv = arrNV[i]
         // content += '<tr>'
         // content += '<td>' + nv.taikhoan + '</td>'
         // content += '<td>' + nv.tenNV + '</td>'
@@ -157,14 +157,12 @@ function deleteNV(taikhoan){
 }  
 
 
-
-
-    // update nhân viên
-function updateNV(nhanVien){
+   // update nhân viên
+   function updateNV(nhanVien){
     // console.log("tenTaikhoan: ", tenTaikhoan);
     var index = dsnv.timNV(nhanVien)
     var x = dsnv.arrNV[index]
-
+    
     // Lấy data lên input
      document.getElementById('tknv').value  = x.taikhoan
      document.getElementById('name').value =  x.tenNV
@@ -177,23 +175,30 @@ function updateNV(nhanVien){
 
     // lấy lại thông tin nhân viên sau khi chỉnh sửa 
 
-    // Cập nhật sinh viên
-    var nhanVien = getThongTinNV();
-//     // console.log(nhanVien);
-    dsnv.capNhatNV(nhanVien)
+    // // Cập nhật sinh viên
+    // var nhanVien = getThongTinNV();
+    // // console.log(nhanVien);
+    // dsnv.capNhatNV(nhanVien)
 
+    // // Render ra UI
+    // renderdsnv()
+
+    // // Cập nhật data local
+    // setLocalStorage()
+}
+
+getElement('#btnCapNhat').onclick = function() {
+    var nhanVien = getThongTinNV()
+
+    dsnv.capNhatNV(nhanVien)
+    
     // Render ra UI
     renderdsnv()
 
     // Cập nhật data local
     setLocalStorage()
 }
-
-getElement('#btnCapNhat').onclick = updateNV(nhanVien)
-// { 
-//     
-// }
-
+ 
 
     // search nhân viên
 getElement('#searchName').addEventListener('keyup', function(){
@@ -201,16 +206,17 @@ getElement('#searchName').addEventListener('keyup', function(){
     // console.log("valueSearch: ", valueSearch);
     var arrNVSearch = []
     for(var i = 0; i < dsnv.arrNV.length; i++){
-        var a = dsnv.arrNV[i].a.toLowerCase()
-        if(nhanVien.xepLoai().indexOf(valueSearch) !== -1){
+        var ranks = dsnv.arrNV[i].xepLoai().toLowerCase()
+        if(ranks.indexOf(valueSearch) !== -1){
             arrNVSearch.push(dsnv.arrNV[i])
         }
     }
-    console.log("arrNVSearch: ", arrNVSearch);
+    console.log("arrNVSearch: ", arrNVSearch)   
+    renderdsnv(arrNVSearch)
 
 })   
 
-// function searchNV(){
 
-// }
+
+
 
