@@ -51,6 +51,7 @@ getElement('#btnThemNV').onclick = function(){
     // // tạo đối tượng nhân viên
     // var nhanVien = new NhanVien(taikhoan, tenNV, email, matKhau, ngayLam, luong, chucVu, gioLam)
 
+    
     var nhanVien = getThongTinNV()
    console.log(nhanVien);
    if(nhanVien){

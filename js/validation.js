@@ -1,5 +1,7 @@
 function checkTaikhoan (taikhoan){
     var test = taikhoan.length
+
+    
     if(test >= 4 && test <= 6){
         
         document.getElementById('tbTKNV').style.display="none";
