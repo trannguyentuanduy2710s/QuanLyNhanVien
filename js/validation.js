@@ -11,7 +11,7 @@ function checkTaikhoan (taikhoan){
 }
 
     var item = {
-        name: /^[a-zA-Z]+$/,
+        name: /^[a-zA-Z\sÀ-ỹ]+$/,
         email: /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/,
         pw: /^(?=.*\d)(?=.*[A-Z])(?=.*[\W_]).{6,10}$/
     };
