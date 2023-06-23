@@ -31,13 +31,13 @@ function NhanVien(_taikhoan, _tenNV, _email, _matKhau, _ngayLam, _luong, _chucVu
     this.xepLoai = function(){
         var rank = document.getElementById('xeploai') 
         if(this.gioLam >= 80 && this.gioLam < 160){
-           return (rank = 'Nhân viên trung bình')
+           return (rank = ' Trung bình')
         }else if(this.gioLam >=160 && this.gioLam < 176){
-           return (rank = 'Nhân viên khá')
+           return (rank = ' Khá')
         }else if(this.gioLam >=176 && this.gioLam < 192){
-            return (rank = 'Nhân viên giỏi')
+            return (rank = ' Giỏi')
         }else if(this.gioLam >=192 && this.gioLam < 200){
-            return (rank = 'Nhân viên xuất sắc')
+            return (rank = ' Xuất sắc')
         }
 }
 }
